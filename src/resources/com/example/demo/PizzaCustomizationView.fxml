@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxWidth="-Infinity" prefHeight="558.0" prefWidth="405.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.PizzaCustomizationController">
+    <children>
+        <BorderPane maxWidth="-Infinity" prefHeight="558.0" prefWidth="405.0">
+            <center>
+                <VBox maxWidth="-Infinity" prefHeight="200.0" prefWidth="405.0" style="-fx-background-color: grey;" BorderPane.alignment="CENTER">
+                    <children>
+                        <AnchorPane maxWidth="-Infinity" prefHeight="200.0" prefWidth="405.0" style="-fx-background-color: black; -fx-border-color: white;">
+                            <children>
+                                <ImageView fx:id="pepperoniPic" fitHeight="150.0" fitWidth="200.0" layoutX="103.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                    <image>
+                                        <Image url="@pepperoni.jpg" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fx:id="deluxePic" fitHeight="150.0" fitWidth="200.0" layoutX="125.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                    <image>
+                                        <Image url="@deluxe.jpg" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fx:id="hawaiianPic" fitHeight="150.0" fitWidth="200.0" layoutX="100.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                    <image>
+                                        <Image url="@hawaiian.jpg" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </AnchorPane>
+                        <HBox prefHeight="68.0" prefWidth="400.0" style="-fx-border-color: black;">
+                            <children>
+                                <Label text="Size" textFill="WHITE">
+                                    <HBox.margin>
+                                        <Insets left="90.0" right="15.0" top="15.0" />
+                                    </HBox.margin>
+                                    <font>
+                                        <Font name="American Typewriter" size="18.0" />
+                                    </font>
+                                </Label>
+                                <ComboBox fx:id="sizeMenu" onAction="#changePizzaSizeMenu" prefWidth="150.0">
+                                    <HBox.margin>
+                                        <Insets top="10.0" />
+                                    </HBox.margin></ComboBox>
+                            </children>
+                            <VBox.margin>
+                                <Insets top="20.0" />
+                            </VBox.margin>
+                        </HBox>
+                        <HBox maxWidth="-Infinity" prefHeight="232.0" prefWidth="405.0">
+                            <children>
+                                <VBox prefHeight="100.0" prefWidth="148.0">
+                                    <children>
+                                        <Label alignment="CENTER" prefHeight="18.0" prefWidth="132.0" style="-fx-background-color: black;" text="Selected Toppings" textFill="WHITE">
+                                            <VBox.margin>
+                                                <Insets left="20.0" top="15.0" />
+                                            </VBox.margin>
+                                            <font>
+                                                <Font name="American Typewriter" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <ListView fx:id="selectedList" prefHeight="192.0" prefWidth="128.0">
+                                            <VBox.margin>
+                                                <Insets left="20.0" />
+                                            </VBox.margin>
+                                        </ListView>
+                                    </children>
+                                </VBox>
+                                <VBox prefHeight="225.0" prefWidth="108.0">
+                                    <children>
+                                        <Button fx:id="addButton" mnemonicParsing="false" onAction="#addButtonClick" text="&lt;&lt;Add">
+                                            <VBox.margin>
+                                                <Insets left="20.0" top="50.0" />
+                                            </VBox.margin>
+                                            <font>
+                                                <Font name="American Typewriter" size="13.0" />
+                                            </font>
+                                        </Button>
+                                        <Button fx:id="removeButton" mnemonicParsing="false" onAction="#removeButtonClick" prefHeight="26.0" prefWidth="86.0" text="Remove&gt;&gt;">
+                                            <VBox.margin>
+                                                <Insets left="10.0" />
+                                            </VBox.margin>
+                                            <font>
+                                                <Font name="American Typewriter" size="13.0" />
+                                            </font>
+                                        </Button>
+                                    </children>
+                                </VBox>
+                                <VBox prefHeight="100.0" prefWidth="133.0">
+                                    <children>
+                                        <Label alignment="CENTER" prefHeight="17.0" prefWidth="144.0" style="-fx-background-color: black;" text="Additional Toppings" textFill="WHITE">
+                                            <VBox.margin>
+                                                <Insets top="15.0" />
+                                            </VBox.margin>
+                                        </Label>
+                                        <ListView fx:id="addList" prefHeight="190.0" prefWidth="133.0" />
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="69.0" prefWidth="400.0">
+                            <children>
+                                <Label text="Price $">
+                                    <HBox.margin>
+                                        <Insets left="50.0" right="5.0" top="3.0" />
+                                    </HBox.margin>
+                                    <font>
+                                        <Font name="American Typewriter" size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="pizzaPrice" editable="false">
+                                    <HBox.margin>
+                                        <Insets right="10.0" />
+                                    </HBox.margin>
+                                </TextField>
+                                <Button fx:id="addToOrderButton" mnemonicParsing="false" onAction="#addToOrderButtonClick" text="Add to Order">
+                                    <font>
+                                        <Font name="American Typewriter" size="13.0" />
+                                    </font></Button>
+                            </children>
+                            <VBox.margin>
+                                <Insets top="20.0" />
+                            </VBox.margin>
+                        </HBox>
+                    </children>
+                </VBox>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>
